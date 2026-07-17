@@ -1,0 +1,39 @@
+/**
+ * ─────────────────────────────────────────────────────
+ *  Melody Bot — Command Template
+ *  Copy this file, rename it, and fill in the blanks.
+ * ─────────────────────────────────────────────────────
+ *
+ *  Usage in Discord: !melody <command> [args...]
+ */
+
+const Queue = require('../structures/queue');
+
+module.exports = {
+  // The word users type after "!melody " to trigger this command
+  command: 'melodyMYCOMMAND',
+
+  /**
+   * @param {string[]}                    args     - Words after the command name
+   * @param {import('discord.js').Message} message  - The Discord message object
+   * @param {import('discord.js').Client}  client   - The bot client (has client.lavalink)
+   */
+  run: async (args, message, client) => {
+    // 1. Guard: must be in a voice channel (for any music command)
+    if (!message.member?.voice?.channel)
+      return message.channel.send('❌ You must be in a voice channel!');
+
+    // 2. Get the existing player for this guild (null if nothing is playing)
+    const rawPlayer = client.lavalink.getPlayer(message.guild.id);
+    if (!rawPlayer)
+      return message.channel.send('❌ Nothing is playing!');
+
+    // 3. Wrap it in the Queue helper for cleaner access
+    const queue = new Queue(rawPlayer, client);
+
+    // 4. Do your thing
+    // e.g. queue.skip(), queue.setVolume(50), queue.current, queue.tracks ...
+
+    message.channel.send('✅ Command ran successfully!');
+  },
+};

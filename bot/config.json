@@ -1,0 +1,13 @@
+{
+  "token": "1482076191395228141.GfSCm6DvlbhAp53cV93guzyRVYrCS276o5g9GImEyto",
+  "prefix": "!melody",
+  "nodes": [
+    {
+      "id": "main",
+      "host": "localhost",
+      "port": 2333,
+      "password": "mysh!t",
+      "secure": false
+    }
+  ]
+}

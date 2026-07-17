@@ -1,0 +1,16 @@
+{
+  "name": "melody-bot",
+  "version": "1.0.0",
+  "description": "Melody music bot for Fluxer",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env index.js",
+    "dev": "node --watch --env-file=.env index.js"
+  },
+  "dependencies": {
+    "@fluxerjs/core": "1.2.3",
+    "@fluxerjs/voice": "1.2.3",
+    "lavalink-client": "^2.4.0"
+  }
+}
